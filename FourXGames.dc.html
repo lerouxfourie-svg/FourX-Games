@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #F4F3F1; color: #14264D; font-family: 'Public Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #9a7f3f; text-decoration: none; }
+  a:hover { color: #14264D; }
+  .doc h2 { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 26px; letter-spacing: -0.01em; margin: 46px 0 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(20,38,77,0.12); }
+  .doc h3 { font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 16px; margin: 28px 0 8px; }
+  .doc p { font-size: 15.5px; line-height: 1.72; margin: 0 0 15px; color: #2b3a5c; }
+  .doc ul { padding-left: 20px; margin: 0 0 16px; }
+  .doc li { font-size: 15.5px; line-height: 1.7; margin-bottom: 8px; color: #2b3a5c; }
+  .doc blockquote { margin: 0 0 22px; padding: 18px 22px; background: #fff; border-left: 3px solid #C0A261; border-radius: 2px; font-size: 15px; line-height: 1.7; color: #3a4763; }
+  .doc blockquote p { margin: 0 0 10px; color: inherit; font-size: inherit; }
+  .doc blockquote p:last-child { margin: 0; }
+  .doc hr { border: none; border-top: 1px solid rgba(20,38,77,0.14); margin: 34px 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 8px 0 26px; font-size: 13.5px; }
+  .doc th { text-align: left; background: #14264D; color: #F4F3F1; font-weight: 600; padding: 10px 12px; border: 1px solid #14264D; }
+  .doc td { padding: 10px 12px; border: 1px solid rgba(20,38,77,0.15); vertical-align: top; line-height: 1.55; color: #2b3a5c; }
+  .doc tr:nth-child(even) td { background: rgba(20,38,77,0.025); }
+  .doc strong { color: #14264D; font-weight: 700; }
+  .ph { background: rgba(192,162,97,0.16); color: #8a6d2f; border-radius: 3px; padding: 0 4px; font-size: 0.92em; font-style: italic; }
+  .doc a { border-bottom: 1px solid rgba(154,127,63,0.4); }
+</style>
+</helmet>
+<div style="min-height:100vh; display:flex; flex-direction:column;">
+  <header style="position:sticky; top:0; z-index:50; background:rgba(244,243,241,0.9); backdrop-filter:blur(10px); border-bottom:1px solid rgba(20,38,77,0.1);">
+    <div style="max-width:1120px; margin:0 auto; padding:16px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="#home" onClick="{{ go }}" data-page="home" style="display:flex; align-items:center; gap:12px; border:none;">
+        <img src="assets/fourx-logo.svg" alt="FourX Games" style="width:40px; height:40px; display:block;">
+        <span style="font-family:'Newsreader',serif; font-size:20px; font-weight:500; letter-spacing:0.02em; color:#14264D;">FourX&nbsp;Games</span>
+      </a>
+      <nav style="display:flex; align-items:center; gap:4px; flex-wrap:wrap; font-size:14px;">
+        <a href="#home" onClick="{{ go }}" data-page="home" style="padding:8px 12px; border:none; color:#14264D;">Home</a>
+        <a href="#press" onClick="{{ go }}" data-page="press" style="padding:8px 12px; border:none; color:#14264D;">About</a>
+        <a href="#support" onClick="{{ go }}" data-page="support" style="padding:8px 12px; border:none; color:#14264D;">Support</a>
+        <a href="#privacy" onClick="{{ go }}" data-page="privacy" style="padding:8px 12px; border:none; color:#14264D;">Privacy</a>
+        <a href="#terms" onClick="{{ go }}" data-page="terms" style="padding:8px 12px; border:none; color:#14264D;">Terms</a>
+        <a href="#delete-account" onClick="{{ go }}" data-page="delete-account" style="padding:8px 14px; margin-left:6px; border:1px solid rgba(20,38,77,0.25); border-radius:6px; color:#14264D;">Delete account</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex:1;">
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <section style="background:#14264D; color:#F4F3F1; overflow:hidden;">
+          <div style="max-width:1120px; margin:0 auto; padding:96px 32px 88px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;">
+            <div>
+              <div style="display:inline-flex; align-items:center; gap:10px; padding:7px 14px; border:1px solid rgba(192,162,97,0.5); border-radius:999px; color:#C0A261; font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:28px;">
+                <span style="width:6px; height:6px; border-radius:50%; background:#C0A261; display:inline-block;"></span>
+                Coming late 2026
+              </div>
+              <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:64px; line-height:1.02; letter-spacing:-0.02em; margin:0 0 22px;">Prestige&nbsp;Golf</h1>
+              <p style="font-size:19px; line-height:1.6; color:rgba(244,243,241,0.82); max-width:30em; margin:0 0 34px;">A skill-first mobile golf game with server-validated shots and a genuine fair-play promise. No pay-to-win, no ads, no tracking — just the game.</p>
+              <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+                <div style="display:flex; align-items:center; gap:10px; padding:12px 18px; border:1px solid rgba(244,243,241,0.28); border-radius:8px; color:rgba(244,243,241,0.85); font-size:14px;">App Store — coming soon</div>
+                <div style="display:flex; align-items:center; gap:10px; padding:12px 18px; border:1px solid rgba(244,243,241,0.28); border-radius:8px; color:rgba(244,243,241,0.85); font-size:14px;">Google Play — coming soon</div>
+              </div>
+            </div>
+            <div style="aspect-ratio:9/16; max-height:520px; border-radius:22px; border:1px solid rgba(192,162,97,0.4); background:repeating-linear-gradient(135deg, rgba(192,162,97,0.09) 0 12px, rgba(192,162,97,0.03) 12px 24px); display:flex; align-items:center; justify-content:center; margin-left:auto;">
+              <span style="font-family:ui-monospace,'SF Mono',monospace; font-size:12px; letter-spacing:0.08em; color:rgba(192,162,97,0.75); text-align:center; padding:0 20px;">GAMEPLAY SCREENSHOT<br>9 : 16</span>
+            </div>
+          </div>
+        </section>
+
+        <section style="max-width:1120px; margin:0 auto; padding:80px 32px;">
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+            <div style="padding:30px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
+              <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:10px;">Server-validated shots</div>
+              <p style="font-size:14.5px; line-height:1.6; color:#2b3a5c; margin:0;">Every shot's physics is computed and checked on our servers. No purchase can change the outcome of a swing.</p>
+            </div>
+            <div style="padding:30px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
+              <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:10px;">No ads, no tracking</div>
+              <p style="font-size:14.5px; line-height:1.6; color:#2b3a5c; margin:0;">The game contains no advertising or tracking SDKs. We never sell your personal information.</p>
+            </div>
+            <div style="padding:30px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
+              <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:10px;">Real players only</div>
+              <p style="font-size:14.5px; line-height:1.6; color:#2b3a5c; margin:0;">Competitive modes match you with real people — never bots disguised as players.</p>
+            </div>
+          </div>
+        </section>
+
+        <section style="border-top:1px solid rgba(20,38,77,0.1);">
+          <div style="max-width:1120px; margin:0 auto; padding:64px 32px; display:flex; gap:40px; flex-wrap:wrap; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:26px; margin-bottom:6px;">Legal &amp; support</div>
+              <p style="font-size:15px; color:#2b3a5c; margin:0; max-width:34em;">Everything reviewers and players need is published here and kept current.</p>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#privacy" onClick="{{ go }}" data-page="privacy" style="padding:11px 18px; border:1px solid rgba(20,38,77,0.25); border-radius:8px; color:#14264D; border-bottom:1px solid rgba(20,38,77,0.25);">Privacy Policy</a>
+              <a href="#terms" onClick="{{ go }}" data-page="terms" style="padding:11px 18px; border:1px solid rgba(20,38,77,0.25); border-radius:8px; color:#14264D; border-bottom:1px solid rgba(20,38,77,0.25);">Terms &amp; Conditions</a>
+              <a href="#support" onClick="{{ go }}" data-page="support" style="padding:11px 18px; border:1px solid rgba(20,38,77,0.25); border-radius:8px; color:#14264D; border-bottom:1px solid rgba(20,38,77,0.25);">Support</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isPress }}" hint-placeholder-val="{{ true }}">
+      <div style="max-width:820px; margin:0 auto; padding:64px 32px 96px;">
+        <div style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:#9a7f3f; margin-bottom:14px;">About</div>
+        <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; line-height:1.08; margin:0 0 26px;">FourX Games</h1>
+        <div class="doc">
+          <p>FourX Games Proprietary Limited is an independent studio registered in the Republic of South Africa (registration number 2026/552177/07). Our first title, <strong>Prestige Golf</strong>, is a skill-first mobile golf game launching in late 2026.</p>
+          <p>Prestige Golf is built on a fair-play promise: shot outcomes are computed and validated server-side, competitive modes use only real players, and nothing you buy changes the physics of a competitive shot. The game carries no advertising and no third-party tracking SDKs.</p>
+          <h2>Press &amp; business enquiries</h2>
+          <p>For press, partnership or business enquiries, email <a href="mailto:press@fourxgames.com">press@fourxgames.com</a>. For player support see the <a href="#support" onClick="{{ go }}" data-page="support">Support</a> page.</p>
+          <h2>Fact sheet</h2>
+          <ul>
+            <li><strong>Studio:</strong> FourX Games Proprietary Limited</li>
+            <li><strong>Registration:</strong> 2026/552177/07 (Republic of South Africa)</li>
+            <li><strong>Debut title:</strong> Prestige Golf (mobile — iOS &amp; Android)</li>
+            <li><strong>Launch:</strong> Late 2026</li>
+            <li><strong>Website:</strong> https://FourXGames.com</li>
+          </ul>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSupport }}" hint-placeholder-val="{{ true }}">
+      <div style="max-width:820px; margin:0 auto; padding:64px 32px 96px;">
+        <div style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:#9a7f3f; margin-bottom:14px;">Help</div>
+        <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; line-height:1.08; margin:0 0 26px;">Support &amp; contact</h1>
+        <div class="doc">
+          <p>We're a small team and we read every message. For the fastest help, email us and include your platform (iOS or Android), the game version, and a short description of the issue.</p>
+          <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:28px 0 10px;">
+            <div style="padding:24px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
+              <div style="font-weight:700; margin-bottom:6px;">Player support</div>
+              <p style="margin:0;"><a href="mailto:support@fourxgames.com">support@fourxgames.com</a></p>
+            </div>
+            <div style="padding:24px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
+              <div style="font-weight:700; margin-bottom:6px;">Privacy &amp; data requests</div>
+              <p style="margin:0;"><a href="mailto:privacy@fourxgames.com">privacy@fourxgames.com</a></p>
+            </div>
+          </div>
+          <h2>Common questions</h2>
+          <h3>How do I recover guest progress?</h3>
+          <p>Guest progress is tied to your device. Upgrade to a registered account (email or Apple/Google sign-in) as early as possible so your career is saved and syncs across devices.</p>
+          <h3>How do refunds work?</h3>
+          <p>In-app purchases are handled by Apple or Google. Refund requests are processed by the relevant store under its policies. Your non-excludable statutory rights are unaffected — see the <a href="#terms" onClick="{{ go }}" data-page="terms">Terms</a>, clause 6.</p>
+          <h3>How do I report a bug or a cheater?</h3>
+          <p>Email <a href="mailto:support@fourxgames.com">support@fourxgames.com</a>. Please don't exploit bugs — report them and we'll fix them.</p>
+          <h3>How do I delete my account?</h3>
+          <p>See the <a href="#delete-account" onClick="{{ go }}" data-page="delete-account">account deletion</a> page for in-game and web instructions.</p>
+          <h2>Company details</h2>
+          <p>FourX Games Proprietary Limited · Registration 2026/552177/07 (Republic of South Africa) · Registered address: 30 Fifth Street, Menlopark, Pretoria, South Africa</p>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isDelete }}" hint-placeholder-val="{{ true }}">
+      <div style="max-width:820px; margin:0 auto; padding:64px 32px 96px;">
+        <div style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:#9a7f3f; margin-bottom:14px;">Account</div>
+        <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; line-height:1.08; margin:0 0 20px;">Delete your account &amp; data</h1>
+        <div class="doc">
+          <p>You can permanently delete your Prestige Golf account and associated personal data at any time, in one of two ways.</p>
+          <h2>Option 1 — In the game</h2>
+          <p>Open Prestige Golf and go to <strong>Settings ▸ Account ▸ Delete account</strong>, then confirm.</p>
+          <h2>Option 2 — By request here</h2>
+          <p>If you can't access the game, email <a href="mailto:privacy@fourxgames.com">privacy@fourxgames.com</a> from the address on your account with the subject line <strong>“Delete my account”</strong>. We may need to verify your identity before we proceed.</p>
+          <h2>What is deleted, and when</h2>
+          <ul>
+            <li><strong>Deleted or de-identified within 30 days:</strong> your profile, display name, avatar, progression, gameplay and shot records, virtual items and purchase entitlements.</li>
+            <li><strong>Deleted from backups</strong> within the normal backup rotation shortly afterwards.</li>
+            <li><strong>Retained where the law requires it:</strong> purchase and transaction records are kept for tax and company-law purposes (South Africa: generally 5 years), de-linked from your identity where feasible.</li>
+          </ul>
+          <p>Deletion is permanent and cannot be undone. Full detail is in our <a href="#privacy" onClick="{{ go }}" data-page="privacy">Privacy Policy</a> (section 5 &amp; 6).</p>
+          <div style="margin-top:26px; padding:22px 24px; background:#14264D; color:#F4F3F1; border-radius:12px;">
+            <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:6px;">Request deletion by email</div>
+            <p style="margin:0; color:rgba(244,243,241,0.82); font-size:14.5px;">Send to <a href="mailto:privacy@fourxgames.com?subject=Delete%20my%20account" style="color:#C0A261; border-bottom:1px solid rgba(192,162,97,0.5);">privacy@fourxgames.com</a> with subject “Delete my account”.</p>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isPrivacy }}" hint-placeholder-val="{{ true }}">
+      <div style="max-width:820px; margin:0 auto; padding:56px 32px 96px;">
+        <div class="doc" ref="{{ privacyRef }}"></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isTerms }}" hint-placeholder-val="{{ true }}">
+      <div style="max-width:820px; margin:0 auto; padding:56px 32px 96px;">
+        <div class="doc" ref="{{ termsRef }}"></div>
+      </div>
+    </sc-if>
+  </main>
+
+  <footer style="background:#14264D; color:rgba(244,243,241,0.7);">
+    <div style="max-width:1120px; margin:0 auto; padding:48px 32px; display:flex; gap:32px; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
+      <div style="max-width:24em;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <img src="assets/fourx-logo.svg" alt="" style="width:34px; height:34px; background:#F4F3F1; border-radius:6px; padding:2px;">
+          <span style="font-family:'Newsreader',serif; font-size:17px; color:#F4F3F1;">FourX Games</span>
+        </div>
+        <p style="font-size:13px; line-height:1.6; margin:0;">FourX Games Proprietary Limited · Reg. 2026/552177/07 · Republic of South Africa.</p>
+      </div>
+      <div style="display:flex; gap:52px; flex-wrap:wrap;">
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
+          <a href="#home" onClick="{{ go }}" data-page="home" style="color:rgba(244,243,241,0.7); border:none;">Home</a>
+          <a href="#press" onClick="{{ go }}" data-page="press" style="color:rgba(244,243,241,0.7); border:none;">About</a>
+          <a href="#support" onClick="{{ go }}" data-page="support" style="color:rgba(244,243,241,0.7); border:none;">Support</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
+          <a href="#privacy" onClick="{{ go }}" data-page="privacy" style="color:rgba(244,243,241,0.7); border:none;">Privacy Policy</a>
+          <a href="#terms" onClick="{{ go }}" data-page="terms" style="color:rgba(244,243,241,0.7); border:none;">Terms &amp; Conditions</a>
+          <a href="#delete-account" onClick="{{ go }}" data-page="delete-account" style="color:rgba(244,243,241,0.7); border:none;">Delete account</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(244,243,241,0.12);">
+      <div style="max-width:1120px; margin:0 auto; padding:18px 32px; font-size:12.5px; color:rgba(244,243,241,0.5);">© 2026 FourX Games Proprietary Limited. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const PRIVACY_MD = String.raw`# Prestige Golf — Privacy Policy
+
+**Data controller / responsible party:** FourX Games Proprietary Limited
+Registration number 2026/552177/07 (Republic of South Africa)
+Registered address: 30 Fifth Street, Menlopark, Pretoria, South Africa
+Website: https://FourXGames.com · Privacy contact: privacy@fourxgames.com
+Information Officer (POPIA): Leroux Fourie
+
+**Effective date:** 1 August 2026 · **Version:** 1.0 (draft for legal review)
+
+> This policy explains what personal information we collect when you play **Prestige Golf** or use **FourXGames.com**, why we collect it, who we share it with, how long we keep it, and the rights you have. It is written to satisfy the South African Protection of Personal Information Act ("**POPIA**"), the EU/UK General Data Protection Regulation ("**GDPR**"), US state privacy laws including the California Consumer Privacy Act ("**CCPA/CPRA**"), and the privacy requirements of the Apple App Store and Google Play.
+
+**The short version:** we collect what we need to run a fair online golf game — your account details, your gameplay, and technical data. **We do not sell your personal information, we do not show third-party advertising, and the Game contains no advertising or tracking SDKs.**
+
+---
+
+## 1. What we collect
+
+**a. Account information** (registered accounts): email address; password (stored only as a salted cryptographic hash — we cannot read it); sign-in tokens. Guest accounts: a device-linked identifier only, until you register.
+
+**b. Profile information**: display name; avatar selection; country (optional); in-game handicap, XP, career tier and progression; equipment and purchases made with in-game currency.
+
+**c. Gameplay data**: rounds, sessions and scores; every shot's inputs and server-validated outcomes (club, power, positions, distances, lie, spin); per-shot analytics used for your statistics (for example distance-to-pin and surface before/after each shot); saved mid-round games; shot replay records.
+
+**d. Purchase data** (when in-app purchases launch): the items you bought, store transaction identifiers and entitlements. **Payment is processed by Apple or Google — we never receive your card details.**
+
+**e. Technical data**: IP address; device type and operating system version; app version; language/locale; request identifiers, timestamps and server logs; crash and error diagnostics; connectivity state (for offline-play sync).
+
+**f. Support data**: correspondence when you contact us.
+
+**g. Push notification tokens** (only if/when you enable notifications).
+
+**Website (FourXGames.com):** the Site uses only strictly necessary cookies. It uses no analytics, advertising or third-party tracking cookies.
+
+We do **not** collect: real names (unless you put one in your display name), precise location, contacts, photos, biometric data, or advertising identifiers.
+
+## 2. Why we collect it (purposes and legal bases)
+
+| Purpose | Data | GDPR legal basis |
+|---|---|---|
+| Create and operate your account; save and sync progress across devices | a, b, c, e | Contract (Art 6(1)(b)) |
+| Run gameplay itself — server-side shot validation is how the game works | c, e | Contract |
+| **Fair play / anti-cheat**: validating shots server-side, flagging implausible results, reviewing replays, enforcing bans | c, e | Legitimate interests (Art 6(1)(f)) |
+| Leaderboards, competitive modes and matchmaking (when live) | b, c | Contract |
+| Process purchases and deliver entitlements | d | Contract; legal obligation |
+| Security, fraud prevention, service integrity, debugging | e, c | Legitimate interests |
+| Support | f | Contract / legitimate interests |
+| Optional notifications | g | Consent (withdraw any time in device settings) |
+| Legal compliance (tax, accounting, lawful requests) | a, d, e | Legal obligation |
+| Service communications (e.g. material changes to terms) | a | Contract / legitimate interests |
+
+Under **POPIA**, we process personal information on the corresponding grounds in section 11 (performance of a contract, protecting your or our legitimate interests, legal obligations, and consent where indicated). We do not use your personal information for direct marketing without your consent, and any marketing message will include an opt-out. We do not carry out automated decision-making with legal or similarly significant effect: anti-cheat flags are reviewed with human involvement before account-level penalties are applied. [CONFIRM OPERATIONALLY — this must remain true.]
+
+## 3. Who we share it with
+
+We do **not sell** personal information and do **not share it for cross-context behavioural advertising**. We share it only with:
+
+- **Infrastructure providers (processors):** Amazon Web Services, Inc. — cloud hosting of our game servers, databases and storage. [CONFIRM REGION: currently US East (N. Virginia).]
+- **App stores:** Apple and Google, when they process your purchases, subscriptions or refunds under their own privacy policies, and for app distribution and (if enabled) push notifications.
+- **Professional advisers and authorities** where required by law, to enforce our terms, or to protect the rights, safety and integrity of players and the Services.
+- **A buyer or successor** in a merger, acquisition or asset sale — with notice to you and continuity of this policy's protections.
+- **Other players** see only what the game shows: your display name, avatar, country flag (if set), and gameplay results (scores, leaderboards, match outcomes).
+
+All processors act under contracts (data processing agreements) that restrict them to processing on our instructions with appropriate security.
+
+## 4. International transfers
+
+We are a South African company and our servers are hosted by AWS in the **United States** [CONFIRM]. This means your personal information is transferred internationally:
+
+- **From the EU/EEA/UK:** transfers rely on the European Commission's Standard Contractual Clauses (and the UK Addendum/IDTA), together with AWS's supplementary safeguards. AWS is also self-certified under the EU-US Data Privacy Framework (including the UK extension and the Swiss-US framework).
+- **From South Africa:** POPIA section 72 — the recipient is bound by contractual obligations (our AWS data processing agreement and the safeguards above) that provide an adequate level of protection substantially similar to POPIA.
+- **Other countries:** we apply the same contractual safeguards.
+
+You may request a copy of the relevant safeguards via privacy@fourxgames.com.
+
+## 5. How long we keep it
+
+| Data | Retention |
+|---|---|
+| Account, profile, progression | While your account is active; deleted or de-identified within **30 days** of account deletion |
+| Mid-round saved games | 72 hours (then expire automatically) |
+| Sign-in refresh tokens | Up to 90 days, rotating |
+| Gameplay/shot records and statistics | Life of the account; deleted with the account |
+| Anti-cheat flags, replays and enforcement records | Replays 90 days unless flagged; flagged-incident and enforcement records up to 24 months |
+| Purchase/transaction records | As required by tax and company law (South Africa: generally 5 years) — retained even after account deletion, de-linked where feasible |
+| Server logs and diagnostics | 90 days |
+| Support correspondence | 24 months |
+| Backups | Deleted data leaves backup rotation within 35 days |
+
+## 6. Your rights
+
+**Everyone:** you can access and update most profile data in the Game, and you can **delete your account** in the Game (Settings ▸ Account ▸ Delete account) or at https://FourXGames.com/delete-account.
+
+**EU/EEA/UK (GDPR):** right of access; rectification; erasure; restriction; portability; objection (including to legitimate-interests processing such as anti-cheat — we will stop unless we have compelling legitimate grounds, which for anti-cheat we generally will while you play competitive modes); withdrawal of consent; and the right to complain to your supervisory authority.
+
+**South Africa (POPIA):** rights of access and correction (sections 23–24, via the form prescribed under PAIA where applicable); deletion/destruction (section 24); objection (section 11(3)); and the right to complain to the **Information Regulator (South Africa)** — Woodmead North Office Park, 54 Maxwell Drive, Woodmead, Johannesburg, 2191; complaints email: POPIAComplaints@inforegulator.org.za. Our PAIA/POPIA manual is available at [LINK — REQUIRED once published].
+
+**California (CCPA/CPRA) and other US states:** right to know/access; delete; correct; portability; and non-discrimination. **We do not sell or share personal information** (as those terms are defined in the CPRA), and we do not use or disclose sensitive personal information for purposes requiring a right to limit. Authorised agents may submit requests. We honour Global Privacy Control signals on the Site. [CONFIRM SITE IMPLEMENTATION.]
+
+**How to exercise rights:** email privacy@fourxgames.com from your account email, or use the in-Game tools. We respond within one month (GDPR), 45 days (CCPA) or the POPIA-prescribed period, and we may need to verify your identity. We will not discriminate against you for exercising rights.
+
+## 7. Children
+
+The Services are not directed at children under 13, and we do not knowingly collect personal information from children under 13. If you are under 18, you may only use the Services with the consent of a parent or guardian (see Terms, clause 1.2) — in South Africa, POPIA treats everyone under 18 as a child, and we rely on the consent of a competent person for such users. If you believe a child has provided personal information without appropriate consent, contact privacy@fourxgames.com and we will delete it.
+
+## 8. Security
+
+We protect personal information with, among other measures: encryption in transit (TLS); passwords stored as salted bcrypt hashes; short-lived, signed access tokens; server-side authoritative game logic (clients cannot write scores directly); per-service database isolation; the principle of least privilege for staff access; and logging and monitoring. No system is 100% secure; if a breach creates a risk to you, we will notify you and the relevant regulator (including the Information Regulator under POPIA section 22 and GDPR Article 33/34 timelines) without undue delay.
+
+## 9. Your choices
+
+- **Play as guest** (no email required) — with the trade-off in Terms clause 2.1.
+- **Notifications** — off unless you opt in; disable any time in device settings.
+- **Country/avatar/display name** — optional and editable.
+- **Marketing** — none without opt-in consent.
+
+## 10. Changes to this policy
+
+We will post changes on this page with a new effective date, and give in-Game or email notice of material changes at least 30 days in advance where practicable.
+
+## 11. Contact
+
+Privacy questions and rights requests: privacy@fourxgames.com
+Information Officer: Leroux Fourie, FourX Games Proprietary Limited, 30 Fifth Street, Menlopark, Pretoria, South Africa
+If you are unsatisfied with our response you may complain to the Information Regulator (South Africa), your EU/UK supervisory authority, or your state Attorney General (US), as applicable.`;
+
+const TERMS_MD = String.raw`# Prestige Golf — Terms and Conditions
+
+**FourX Games Proprietary Limited**
+Registration number: 2026/552177/07 (Republic of South Africa)
+Website: https://FourXGames.com
+Contact: support@fourxgames.com · Registered address: 30 Fifth Street, Menlopark, Pretoria, South Africa
+
+**Effective date:** 1 August 2026
+**Version:** 1.0 (draft for legal review — not yet in force)
+
+> These Terms and Conditions ("**Terms**") are a binding agreement between you and FourX Games Proprietary Limited ("**FourX Games**", "**we**", "**us**"), a company registered in the Republic of South Africa, governing your use of the mobile game **Prestige Golf** (the "**Game**"), the FourXGames.com website (the "**Site**"), and related online services (together, the "**Services**"). By creating an account, installing, or playing the Game you accept these Terms. If you do not agree, do not use the Services.
+
+---
+
+## 1. Who may play
+
+1.1 You must be at least **13 years old** to use the Services.
+
+1.2 If you are under the age of majority where you live (18 in South Africa and most places), you confirm that your parent or legal guardian has reviewed and agreed to these Terms on your behalf, and consents to your use of the Services, including the processing of your personal information described in our [Privacy Policy](#privacy).
+
+1.3 You may not use the Services if you have previously been banned from them, or if doing so is prohibited by applicable law (including trade-sanctions laws — see clause 14.6).
+
+## 2. Your account
+
+2.1 **Guest play.** You may play as a guest without registering. Guest progress is stored on your device and on our servers against a device-linked identifier. If you uninstall the Game or lose your device without upgrading to a registered account, guest progress may be permanently lost.
+
+2.2 **Registered accounts.** You may register with an email address and password (and, when available, an Apple or Google sign-in). You must provide accurate information and keep your credentials confidential. You are responsible for activity on your account. Notify us at support@fourxgames.com immediately of any suspected unauthorised use.
+
+2.3 **One account, personal use.** Accounts are personal to you and may not be sold, transferred, shared, or rented. You may not create accounts by automated means, or create additional accounts to evade an enforcement measure.
+
+2.4 **Account deletion.** You may delete your account at any time from within the Game (Settings ▸ Account ▸ Delete account) or by using the deletion request page at https://FourXGames.com/delete-account. Deletion is permanent: your profile, progress, virtual items and purchase entitlements are removed as described in the Privacy Policy, and personal information is deleted or de-identified within 30 days except where law requires longer retention.
+
+## 3. Licence to play
+
+3.1 We grant you a personal, limited, non-exclusive, non-transferable, revocable licence to install and play the Game on devices you own or control, for private, non-commercial entertainment, subject to these Terms and the usage rules of the app store you obtained it from (Apple App Store or Google Play).
+
+3.2 We (and our licensors) own the Game and Services — all software, artwork, courses, physics models, names, logos and other content. No rights are granted except the licence in 3.1. The "Prestige Golf" and "FourX Games" names and logos are our trade marks (currently unregistered / protected at common law).
+
+3.3 You may not: copy, modify, reverse engineer, decompile or disassemble the Game (except to the extent a law expressly permits it despite this restriction); rent, lease or sublicense it; extract assets or data from it; or use it to build a competing product.
+
+## 4. Fair play and anti-cheat
+
+4.1 Prestige Golf is a skill game built on a **fair-play promise**: shot outcomes are computed and validated on our servers, and no purchase can alter the physics of a shot.
+
+4.2 You must not: use cheats, bots, automation, exploits, or modified clients; tamper with or falsify data sent to our servers; interfere with other players' games; abuse bugs (report them instead at support@fourxgames.com); or probe, scan or attack our infrastructure.
+
+4.3 **Enforcement.** To keep the game fair we validate every shot server-side and retain gameplay records (including shot data and replays) for anti-cheat review. Where we reasonably believe these Terms have been breached we may, proportionate to the breach: warn you; correct scores, results or virtual balances obtained through the breach; suspend features (for example competitive modes); suspend or terminate your account; and/or block devices. Where the law gives you a right to challenge such measures, you may contact us at support@fourxgames.com and we will review the decision.
+
+4.4 In multiplayer and competitive modes you will be matched only with real players — the Game does not use bots disguised as players.
+
+## 5. Virtual items and virtual currency
+
+5.1 The Game includes virtual items and balances — for example XP, career progression, clubs, accessories, and (when introduced) premium currency and passes ("**Virtual Items**"). Virtual Items are licensed to you under clause 3, **not sold**: you receive a limited, revocable licence to use them within the Game only.
+
+5.2 Virtual Items have **no real-world value**, are not redeemable for money, and may not be sold, traded or transferred outside the Game. Unauthorised sale or purchase of Virtual Items or accounts is a breach of these Terms.
+
+5.3 We may change, rebalance, convert or retire Virtual Items as part of operating and evolving the Game. Where a change would materially reduce the value of Virtual Items you bought for money, we will give reasonable advance notice where practicable.
+
+5.4 **Fairness of paid items.** Items obtainable for real money are excluded from head-to-head competitive play or otherwise designed not to confer a competitive physics advantage.
+
+## 6. Purchases, billing and refunds
+
+*(Applies once in-app purchases launch.)*
+
+6.1 Purchases in the Game are processed by the app store (Apple or Google), on their payment terms. We do not receive or store your card details.
+
+6.2 Prices are shown in the store before purchase, inclusive of applicable taxes where required. Prices may change; changes do not affect purchases already completed.
+
+6.3 **Refunds.** Refund requests for store purchases are handled by the relevant store under its policies (Apple Media Services terms; Google Play refund policies). Nothing in these Terms limits non-excludable statutory rights, including: your rights under the South African Consumer Protection Act 68 of 2008; your rights as an EU/EEA or UK consumer; and any refund rights under the laws of your country.
+
+6.4 **EU/UK withdrawal right.** If you are an EU/EEA or UK consumer, you have a 14-day right of withdrawal for digital content. **By purchasing Virtual Items you expressly consent to immediate delivery of the digital content and acknowledge that you thereby lose the 14-day right of withdrawal once delivery has begun.** [CONFIRM THAT THE STORE PURCHASE FLOW CAPTURES THIS CONSENT.]
+
+6.5 Purchases by minors: account holders are responsible for purchases made on their account and devices, subject to applicable law protecting minors.
+
+## 7. User content and conduct
+
+7.1 The Services let you choose limited user content such as a display name and avatar ("**User Content**"). You are responsible for your User Content. It must not be unlawful, infringing, hateful, harassing, sexually explicit, deceptive (for example impersonating another person or our staff), or otherwise objectionable.
+
+7.2 You grant us a non-exclusive, worldwide, royalty-free licence to use, reproduce and display your User Content solely to operate and promote the Services (for example showing your display name on leaderboards).
+
+7.3 We may remove or reset User Content that breaches these Terms and apply the enforcement measures in clause 4.3.
+
+## 8. Availability, changes and updates
+
+8.1 The Game is an online service. Some modes work offline, but progress synchronisation, competitive play, purchases and account features require an internet connection, which is your responsibility.
+
+8.2 We may update, change or discontinue features (and issue updates you must install to keep playing) to operate, secure, balance and improve the Game. If we permanently discontinue the Game entirely, we will give reasonable advance notice on the Site and/or in the Game, and clause 6.3's statutory rights apply to any then-recent purchases.
+
+8.3 We may impose reasonable limits on the Services (for example storage or session limits) and suspend the Services temporarily for maintenance, security or legal reasons.
+
+## 9. Privacy
+
+Our collection and use of personal information is described in the [Privacy Policy](#privacy), which forms part of your agreement with us.
+
+## 10. Disclaimers
+
+10.1 We provide the Services with reasonable skill and care. Subject to clause 10.2, the Services are otherwise provided "as is" and "as available", and we do not warrant that they will be uninterrupted, error-free or that any specific content will remain available.
+
+10.2 **Nothing in these Terms excludes, restricts or modifies rights or remedies which cannot lawfully be excluded** — including your rights under the South African Consumer Protection Act, consumer guarantees under EU/EEA and UK law, and equivalent protections in your country or US state. Clauses 10 and 11 apply only to the maximum extent permitted by applicable law.
+
+## 11. Liability
+
+11.1 We are liable without limitation for death or personal injury caused by our negligence, for fraud, for gross negligence or wilful misconduct, and for any other liability that cannot be limited by law.
+
+11.2 Subject to 11.1, we are not liable for: loss of profits or revenue; loss of data caused by events outside our reasonable control; indirect or consequential loss; or loss arising from unauthorised account access caused by your failure to keep credentials secure.
+
+11.3 Subject to 11.1, our total aggregate liability arising out of the Services in any 12-month period is limited to the greater of (a) the amounts you paid us for the Services in that period and (b) USD 100 (or its equivalent).
+
+11.4 If you breach these Terms, you will indemnify us against third-party claims arising directly from your breach, to the extent permitted by the law of your country. [SA CPA / EU consumer law: indemnities against consumers are sensitive — ATTORNEY TO CONFIRM SCOPE.]
+
+## 12. Termination
+
+12.1 You may stop using the Services and delete your account at any time (clause 2.4).
+
+12.2 We may suspend or terminate your access as described in clause 4.3, or on reasonable notice if we discontinue the Game (clause 8.2). On termination the licence in clause 3 ends, and clauses that by nature survive (including 3.2, 10, 11, 13, 14) continue.
+
+## 13. Governing law and disputes
+
+13.1 These Terms are governed by the laws of the **Republic of South Africa**, and disputes are subject to the non-exclusive jurisdiction of the South African courts — **except that** if you are a consumer habitually resident in the EU/EEA, the UK, or a US state, you retain the protection of the mandatory consumer laws, and access to the courts, of your place of residence.
+
+13.2 We will consider, but are not obliged to use, alternative dispute resolution. Where a mandatory ADR or ombudsman scheme applies to you as a consumer in your country of residence, your rights under it are unaffected.
+
+13.3 Before formal proceedings, please contact support@fourxgames.com — most issues are resolved quickly and informally.
+
+## 14. App store terms (Apple and Google)
+
+14.1 These Terms are between you and FourX Games only — not with Apple Inc. ("Apple") or Google LLC ("Google"). Apple and Google are not responsible for the Game or its content, and have no obligation to furnish maintenance or support for it; FourX Games is solely responsible.
+
+14.2 **Apple (required minimum terms).** Where you obtained the Game from the Apple App Store: (a) the licence in clause 3 is limited to use on Apple-branded products that you own or control, as permitted by the App Store Usage Rules (except that the Game may be accessed by other accounts via Family Sharing or volume purchasing); (b) in the event of any failure of the Game to conform to an applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any) to you; to the maximum extent permitted by law, Apple has no other warranty obligation whatsoever with respect to the Game; (c) Apple is not responsible for addressing any claims by you or a third party relating to the Game, including product liability claims, claims that the Game fails to conform to legal or regulatory requirements, and consumer protection or similar claims; (d) in the event of a third-party claim that the Game infringes intellectual property rights, FourX Games (not Apple) is responsible for the investigation, defence, settlement and discharge of the claim; (e) **Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you**.
+
+14.3 **Google.** Where you obtained the Game from Google Play, your use is also subject to the Google Play Terms of Service.
+
+14.4 Questions, complaints and claims about the Game should be directed to FourX Games at support@fourxgames.com and 30 Fifth Street, Menlopark, Pretoria, South Africa.
+
+14.5 You must comply with any applicable third-party terms when playing (for example your mobile carrier's data terms).
+
+14.6 **Export compliance.** You represent that you are not located in a country subject to a US Government embargo or designated as "terrorist supporting", and are not on any US Government list of prohibited or restricted parties.
+
+## 15. Changes to these Terms
+
+We may amend these Terms for good reason — for example legal changes, new features, or security. For material changes we will give at least 30 days' notice in the Game or by email, and the new Terms will apply from the stated effective date. If you do not agree, stop using the Services and (if applicable) delete your account before the effective date. Continued play after the effective date is acceptance.
+
+## 16. General
+
+16.1 If a clause is found invalid, the rest remain in force. 16.2 A failure to enforce is not a waiver. 16.3 You may not assign these Terms; we may assign them to a successor of the business with notice to you. 16.4 These Terms (with the Privacy Policy and any published game rules) are the entire agreement about the Services. 16.5 The English version of these Terms prevails over any translation, to the extent permitted by law.
+
+## 17. Statutory information (South Africa — ECTA s43)
+
+Full name: FourX Games Proprietary Limited · Registration: 2026/552177/07 · Place of registration: Republic of South Africa · Registered/physical address: 30 Fifth Street, Menlopark, Pretoria, South Africa · Website: https://FourXGames.com · Email: support@fourxgames.com · Not VAT-registered at present · Information Officer: Leroux Fourie · Membership of self-regulatory bodies: None · Cooling-off: section 44 of ECTA does not apply to app-store purchases concluded through Apple/Google as intermediaries [ATTORNEY TO CONFIRM POSITION]; statutory rights in clause 6.3 are unaffected.`;
+
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function inline(s){
+  s = esc(s);
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+  // highlight remaining bracketed placeholders (not links, which are gone)
+  s = s.replace(/\[([^\]]*(?:REQUIRED|CONFIRM|DEFINE|DECIDE|VERIFY|LINK|STATUS|NONE|IF|SA CPA|ATTORNEY|VAT)[^\]]*)\]/g, '<span class="ph">[$1]</span>');
+  return s;
+}
+function mdToHtml(md){
+  const lines = md.split('\n');
+  let html = '', i = 0;
+  while(i < lines.length){
+    let line = lines[i];
+    if(/^#\s+/.test(line)){ html += '<h1 style="font-family:\'Newsreader\',serif;font-weight:500;font-size:40px;line-height:1.1;letter-spacing:-0.02em;margin:0 0 6px;">'+inline(line.replace(/^#\s+/,''))+'</h1>'; i++; continue; }
+    if(/^##\s+/.test(line)){ html += '<h2>'+inline(line.replace(/^##\s+/,''))+'</h2>'; i++; continue; }
+    if(/^###\s+/.test(line)){ html += '<h3>'+inline(line.replace(/^###\s+/,''))+'</h3>'; i++; continue; }
+    if(/^---\s*$/.test(line)){ html += '<hr/>'; i++; continue; }
+    if(/^>\s?/.test(line)){
+      let buf = [];
+      while(i < lines.length && /^>\s?/.test(lines[i])){ buf.push(lines[i].replace(/^>\s?/,'')); i++; }
+      html += '<blockquote><p>'+inline(buf.join(' ').trim())+'</p></blockquote>'; continue;
+    }
+    if(/^\|/.test(line)){
+      let rows = [];
+      while(i < lines.length && /^\|/.test(lines[i])){ rows.push(lines[i]); i++; }
+      const cells = r => r.split('|').slice(1,-1).map(c=>c.trim());
+      const head = cells(rows[0]);
+      const body = rows.slice(2);
+      let t = '<table><thead><tr>'+head.map(h=>'<th>'+inline(h)+'</th>').join('')+'</tr></thead><tbody>';
+      body.forEach(r=>{ t += '<tr>'+cells(r).map(c=>'<td>'+inline(c)+'</td>').join('')+'</tr>'; });
+      t += '</tbody></table>';
+      html += t; continue;
+    }
+    if(/^[-*]\s+/.test(line)){
+      let buf = [];
+      while(i < lines.length && /^[-*]\s+/.test(lines[i])){ buf.push(lines[i].replace(/^[-*]\s+/,'')); i++; }
+      html += '<ul>'+buf.map(b=>'<li>'+inline(b)+'</li>').join('')+'</ul>'; continue;
+    }
+    if(line.trim() === ''){ i++; continue; }
+    // paragraph: gather consecutive non-blank, non-special lines
+    let buf = [];
+    while(i < lines.length && lines[i].trim() !== '' && !/^(#|>|\||[-*]\s|---)/.test(lines[i])){ buf.push(lines[i]); i++; }
+    html += '<p>'+inline(buf.join(' '))+'</p>';
+  }
+  return html;
+}
+
+class Component extends DCLogic {
+  state = { page: 'home' };
+  componentDidMount(){
+    const apply = () => {
+      const h = (location.hash || '').replace(/^#/, '');
+      const valid = ['home','press','support','privacy','terms','delete-account'];
+      this.setState({ page: valid.includes(h) ? h : 'home' });
+    };
+    apply();
+    this._onHash = apply;
+    window.addEventListener('hashchange', apply);
+  }
+  componentWillUnmount(){ if(this._onHash) window.removeEventListener('hashchange', this._onHash); }
+  go = (e) => {
+    e.preventDefault();
+    const p = e.currentTarget.getAttribute('data-page');
+    if(location.hash !== '#'+p){ history.pushState(null, '', '#'+p); }
+    this.setState({ page: p });
+    if(window.scrollTo) window.scrollTo(0, 0);
+  };
+  renderVals(){
+    const page = this.state.page;
+    const bind = (html) => (el) => { if(el && el.innerHTML !== html) el.innerHTML = html; };
+    return {
+      go: this.go,
+      isHome: page === 'home',
+      isPress: page === 'press',
+      isSupport: page === 'support',
+      isPrivacy: page === 'privacy',
+      isTerms: page === 'terms',
+      isDelete: page === 'delete-account',
+      privacyRef: bind(mdToHtml(PRIVACY_MD)),
+      termsRef: bind(mdToHtml(TERMS_MD)),
+    };
+  }
+}
+</script>
+</body>
+</html>
