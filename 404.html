@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FourX Games</title>
+<script>
+  // GitHub Pages serves this for any unknown path (e.g. /delete-account, /privacy).
+  // The site is a single-page app routed by hash, so forward the path to the hash route.
+  (function () {
+    var page = location.pathname.replace(/^\/+|\/+$/g, '');
+    var valid = ['home', 'press', 'support', 'privacy', 'terms', 'delete-account'];
+    location.replace('/' + (valid.indexOf(page) !== -1 ? '#' + page : ''));
+  })();
+</script>
+</head>
+<body></body>
+</html>
