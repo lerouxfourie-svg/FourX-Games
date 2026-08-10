@@ -248,7 +248,7 @@ Information Officer (POPIA): Leroux Fourie
 
 ## 1. What we collect
 
-**a. Account information** (registered accounts): email address; password (stored only as a salted cryptographic hash — we cannot read it); sign-in tokens. Guest accounts: a device-linked identifier only, until you register.
+**a. Account information** (registered accounts): email address; password (stored only as a salted cryptographic hash — we cannot read it); sign-in tokens. **Guest accounts** have no email address and no password: we create an account identifier for you and keep your sign-in token on your device. A guest account otherwise holds the same profile and gameplay information as a registered one (b and c below) — the difference is that we hold no way to identify or contact you, and no way to restore your progress if you lose the device.
 
 **b. Profile information**: display name; avatar selection; country (optional); in-game handicap, XP, career tier and progression; equipment and purchases made with in-game currency.
 
@@ -256,7 +256,7 @@ Information Officer (POPIA): Leroux Fourie
 
 **d. Purchase data** (when in-app purchases launch): the items you bought, store transaction identifiers and entitlements. **Payment is processed by Apple or Google — we never receive your card details.**
 
-**e. Technical data**: IP address; device type and operating system version; app version; language/locale; request identifiers, timestamps and server logs; crash and error diagnostics; connectivity state (for offline-play sync).
+**e. Technical data**: IP address; request identifiers, timestamps, and server logs (which record the requests your device makes, including standard request headers); connectivity state (for offline-play sync). **We do not currently collect crash reports, device model, operating system version or app version.** If we add crash reporting or device diagnostics in a future release — which would help us fix faults faster — we will update this section and our app-store privacy disclosures before that release ships.
 
 **f. Support data**: correspondence when you contact us.
 
@@ -339,7 +339,7 @@ The Services are not directed at children under 13, and we do not knowingly coll
 
 ## 8. Security
 
-We protect personal information with, among other measures: encryption in transit (TLS); passwords stored as salted bcrypt hashes; short-lived, signed access tokens; server-side authoritative game logic (clients cannot write scores directly); per-service database isolation; the principle of least privilege for staff access; and logging and monitoring. No system is 100% secure; if a breach creates a risk to you, we will notify you and the relevant regulator (including the Information Regulator under POPIA section 22 and GDPR Article 33/34 timelines) without undue delay.
+We protect personal information with, among other measures: encryption in transit (TLS); passwords stored as salted bcrypt hashes; short-lived, signed access tokens; server-side authoritative game logic (clients cannot write scores directly); a separate database per service; encrypted, access-controlled backups held separately from the live systems; restricting administrative access to those who need it; and logging and monitoring. No system is 100% secure; if a breach creates a risk to you, we will notify you and the relevant regulator (including the Information Regulator under POPIA section 22 and GDPR Article 33/34 timelines) without undue delay.
 
 ## 9. Your choices
 
@@ -382,7 +382,7 @@ Contact: admin@fourxgames.com · Registered address: 30 Fifth Street, Menlopark,
 
 ## 2. Your account
 
-2.1 **Guest play.** You may play as a guest without registering. Guest progress is stored on your device and on our servers against a device-linked identifier. If you uninstall the Game or lose your device without upgrading to a registered account, guest progress may be permanently lost.
+2.1 **Guest play.** You may play as a guest without registering. Guest progress is stored on our servers against an account identifier we create for you, and your sign-in token is kept on your device. If you uninstall the Game or lose your device without upgrading to a registered account, guest progress may be permanently lost.
 
 2.2 **Registered accounts.** You may register with an email address and password (and, when available, an Apple or Google sign-in). You must provide accurate information and keep your credentials confidential. You are responsible for activity on your account. Notify us at admin@fourxgames.com immediately of any suspected unauthorised use.
 
