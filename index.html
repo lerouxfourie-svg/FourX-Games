@@ -80,7 +80,7 @@
           <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
             <div style="padding:30px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
               <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:10px;">Server-validated shots</div>
-              <p style="font-size:14.5px; line-height:1.6; color:#2b3a5c; margin:0;">Every shot's physics is computed and checked on our servers. No purchase can change the outcome of a swing.</p>
+              <p style="font-size:14.5px; line-height:1.6; color:#2b3a5c; margin:0;">Every shot's physics is computed and checked on our servers. Nothing you buy changes the physics of a competitive shot.</p>
             </div>
             <div style="padding:30px; background:#fff; border:1px solid rgba(20,38,77,0.08); border-radius:12px;">
               <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:10px;">No ads, no tracking</div>
@@ -236,7 +236,7 @@ Registered address: 30 Fifth Street, Menlopark, Pretoria, South Africa
 Website: https://FourXGames.com · Privacy contact: privacy@fourxgames.com
 Information Officer (POPIA): Leroux Fourie
 
-**Effective date:** 1 August 2026 · **Version:** 1.0
+**Effective date:** 27 August 2026 · **Version:** 1.1
 
 > This policy explains what personal information we collect when you play **Prestige Golf** or use **FourXGames.com**, why we collect it, who we share it with, how long we keep it, and the rights you have. It is written to satisfy the South African Protection of Personal Information Act ("**POPIA**"), the EU/UK General Data Protection Regulation ("**GDPR**"), US state privacy laws including the California Consumer Privacy Act ("**CCPA/CPRA**"), and the privacy requirements of the Apple App Store and Google Play.
 
@@ -285,8 +285,8 @@ Under **POPIA**, we process personal information on the corresponding grounds in
 
 We do **not sell** personal information and do **not share it for cross-context behavioural advertising**. We share it only with:
 
-- **Our own infrastructure:** the game servers, databases and file storage are operated by us on our own equipment in the **Republic of South Africa**. They are not hosted with a third-party cloud provider, so no cloud provider holds your data.
-- **Cloudflare, Inc. (processor):** all traffic between your device and our servers passes through Cloudflare's network, which provides the secure connection (TLS), protects the service from attack, and delivers course downloads. Cloudflare therefore processes your requests and IP address in transit on our behalf. We also store our encrypted database backups on Cloudflare's storage service; those backups are encrypted by us before they leave our systems, so Cloudflare cannot read them.
+- **Amazon Web Services (processor):** our game servers and databases run on Amazon Web Services infrastructure in the **United States** (AWS region `us-east-1`). AWS hosts and stores the data on our behalf under its data processing addendum; it does not use it for its own purposes. Databases are encrypted in transit, and access is restricted to our own application servers.
+- **Cloudflare, Inc. (processor):** all traffic between your device and our servers passes through Cloudflare's network, which provides the secure connection (TLS), protects the service from attack, and delivers course downloads. Cloudflare therefore processes your requests and IP address in transit on our behalf. Cloudflare also stores and delivers our game content (such as course downloads).
 - **App stores:** Apple and Google, when they process your purchases, subscriptions or refunds under their own privacy policies, and for app distribution and (if enabled) push notifications.
 - **Professional advisers and authorities** where required by law, to enforce our terms, or to protect the rights, safety and integrity of players and the Services.
 - **A buyer or successor** in a merger, acquisition or asset sale — with notice to you and continuity of this policy's protections.
@@ -296,10 +296,10 @@ All processors act under contracts (data processing agreements) that restrict th
 
 ## 4. International transfers
 
-We are a South African company and **your personal information is stored in South Africa**, on our own equipment. If you play from outside South Africa, your information is transferred there:
+We are a South African company, but **your personal information is stored on our behalf by Amazon Web Services in the United States**. Wherever you play from, your information is therefore transferred to, and processed in, the United States:
 
-- **From the EU/EEA/UK:** South Africa is not covered by a European Commission adequacy decision, so these transfers rely on the European Commission's Standard Contractual Clauses (and the UK Addendum/IDTA) entered into by us as the importer of the data, together with the security measures described in section 8.
-- **From South Africa:** no cross-border transfer takes place — the data stays here.
+- **From the EU/EEA/UK:** neither South Africa nor the United States (outside the EU-US Data Privacy Framework) is covered by a European Commission adequacy decision for our purposes, so these transfers rely on the European Commission's Standard Contractual Clauses (and the UK Addendum/IDTA), entered into by us and flowed down to our processors, together with the security measures described in section 8.
+- **From South Africa:** your information is transferred outside the Republic to the United States. We rely on section 72(1)(b) of POPIA: the transfer is necessary for the performance of our agreement with you (operating your account and the Game), and our processors are bound by written agreements imposing data-protection obligations substantially similar to POPIA.
 - **In transit:** requests travel through Cloudflare's global network, which may route and process them outside South Africa in order to deliver them securely. Cloudflare acts as our processor under its data processing addendum, which incorporates the Standard Contractual Clauses.
 - **Other countries:** we apply the same contractual safeguards.
 
@@ -317,7 +317,7 @@ You may request a copy of the relevant safeguards via privacy@fourxgames.com.
 | Purchase/transaction records | As required by tax and company law (South Africa: generally 5 years) — retained even after account deletion, de-linked where feasible |
 | Server logs and diagnostics | 90 days, then automatically discarded |
 | Support correspondence | 24 months |
-| Backups | Encrypted daily backups, kept 30 days — so deleted data leaves backup rotation within **35 days** |
+| Backups | Encrypted automated daily backups, kept **7 days** — so deleted data leaves backup rotation within **37 days** of your deletion request |
 
 ## 6. Your rights
 
