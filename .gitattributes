@@ -1,0 +1,35 @@
+# Line endings, and why this file has to exist.
+#
+# The site is served as bytes. Two of those bytes-exact guarantees are load-bearing:
+#
+#   1. SUBRESOURCE INTEGRITY. index.html/support.js pin the vendored React, ReactDOM and Babel with
+#      sha384 `integrity` attributes. If Git rewrites those files' line endings on checkout, their
+#      hashes change, the browser BLOCKS them, and the app never boots.
+#
+#   2. The static legal pages are DERIVED by rendering the real site (tools/build-static-pages.py).
+#      A site that cannot boot renders only index.html's static <main> fallback — which is the HOME
+#      page — so the generator writes four copies of the front page over the privacy policy, terms,
+#      deletion and support pages, and its size guard cannot tell because a wrong page is just as
+#      long as a right one.
+#
+# Both happened. On Windows, `core.autocrlf` defaults to true and there was no .gitattributes, so a
+# clone got react.production.min.js at 10,782 bytes where the repository (and the live site) hold
+# 10,751 — thirty-one added carriage returns, three failed integrity checks, a dead preview, and a
+# generator that quietly produced the wrong legal pages. (2026-08-27)
+
+# Everything is LF, in the repository AND in the working tree, on every platform.
+* text=auto eol=lf
+
+# ...except the vendored libraries, which are never touched at all. Their bytes are hashed.
+assets/vendor/** -text
+
+# Binary assets, likewise untouched.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.pdf  binary
+*.woff  binary
+*.woff2 binary

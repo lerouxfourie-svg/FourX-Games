@@ -72,6 +72,40 @@ def serve(directory):
     return httpd, httpd.server_address[1]
 
 
+HINT = ("""
+
+  The usual cause is the vendored libraries failing their Subresource Integrity check, which
+  blocks React and leaves only index.html's static fallback. On Windows that happens when Git
+  rewrites their line endings on checkout. Check:
+
+      openssl dgst -sha384 -binary assets/vendor/react.production.min.js | openssl base64 -A
+
+  against REACT_SRI in support.js. If they differ, .gitattributes is missing or not applied:
+
+      rm -rf assets/vendor && git checkout -- assets/vendor
+""")
+
+
+# A phrase that appears on THAT page and on no other. The size check below cannot tell a right
+# page from a wrong one of the same length — and on 2026-08-27 that is exactly what happened: a
+# Windows checkout rewrote the vendored React to CRLF, its Subresource Integrity hash stopped
+# matching, the browser blocked it, the app never booted, and every slug rendered index.html's
+# static <main> fallback — the HOME page, 12,903 characters of it. Four copies of the front page
+# would have been written over the privacy policy, terms, deletion and support pages, and the
+# guard would have passed all four.
+#
+# So the guard now asks whether the page IS THE PAGE, which is the question that matters.
+MUST_CONTAIN = {
+    "privacy":        "POPIA",
+    "terms":          "Terms and Conditions",
+    "delete-account": "Delete your account",
+    "support":        "Support",
+}
+
+# ...and text that means we captured the WRONG page, whatever its length.
+MUST_NOT_CONTAIN = "Coming late 2026"      # the home-page hero
+
+
 def render(chrome, url, profile):
     """Let the real page render, then take the DOM it produced."""
     out = subprocess.run(
@@ -161,7 +195,18 @@ def main():
             body = extract_main(dom)
             if not body or len(body) < 400:
                 sys.exit(f"FAILED {slug}: the page rendered {len(body or '')} characters. "
-                         "Nothing written — a truncated legal page is worse than none.")
+                         "Nothing written — a truncated legal page is worse than none.{}".format(
+                             HINT if not body else ""))
+
+            # IDENTITY, not just length. See MUST_CONTAIN above for why this exists.
+            needle = MUST_CONTAIN.get(slug)
+            if needle and needle not in body:
+                sys.exit(f"FAILED {slug}: rendered {len(body)} characters that do not contain "
+                         f"{needle!r}. That is not the {slug} page. Nothing written.{HINT}")
+            if MUST_NOT_CONTAIN in body:
+                sys.exit(f"FAILED {slug}: the render contains {MUST_NOT_CONTAIN!r}, which only "
+                         f"appears on the HOME page — the app did not route to #{slug}. "
+                         f"Nothing written.{HINT}")
             page = SHELL.format(title=title, slug=slug, body=absolutise(body))
             outdir = os.path.join(ROOT, slug)
             os.makedirs(outdir, exist_ok=True)
