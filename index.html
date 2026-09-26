@@ -236,7 +236,7 @@ Registered address: 30 Fifth Street, Menlopark, Pretoria, South Africa
 Website: https://FourXGames.com · Privacy contact: privacy@fourxgames.com
 Information Officer (POPIA): Leroux Fourie
 
-**Effective date:** 27 August 2026 · **Version:** 1.1
+**Effective date:** 26 September 2026 · **Version:** 1.2
 
 > This policy explains what personal information we collect when you play **Prestige Golf** or use **FourXGames.com**, why we collect it, who we share it with, how long we keep it, and the rights you have. It is written to satisfy the South African Protection of Personal Information Act ("**POPIA**"), the EU/UK General Data Protection Regulation ("**GDPR**"), US state privacy laws including the California Consumer Privacy Act ("**CCPA/CPRA**"), and the privacy requirements of the Apple App Store and Google Play.
 
@@ -252,13 +252,15 @@ Information Officer (POPIA): Leroux Fourie
 
 **c. Gameplay data**: rounds, sessions and scores; every shot's inputs and server-validated outcomes (club, power, positions, distances, lie, spin); per-shot analytics used for your statistics (for example distance-to-pin and surface before/after each shot); saved mid-round games.
 
-**d. Purchase data** (when in-app purchases launch): the items you bought, store transaction identifiers and entitlements. **Payment is processed by Apple or Google — we never receive your card details.**
+**d. Purchase data**: the items you bought, store transaction identifiers and entitlements. **Payment is processed by Apple or Google — we never receive your card details.**
 
-**e. Technical data**: IP address; request identifiers, timestamps, and server logs (which record the requests your device makes, including standard request headers); connectivity state (for offline-play sync). **We do not currently collect crash reports, device model, operating system version or app version.** If we add crash reporting or device diagnostics in a future release — which would help us fix faults faster — we will update this section and our app-store privacy disclosures before that release ships.
+**e. Technical data**: IP address; request identifiers, timestamps, and server logs (which record the requests your device makes, including standard request headers); connectivity state (for offline-play sync).
 
-**f. Support data**: correspondence when you contact us.
+**f. Crash and diagnostic data**: when the Game crashes, stops responding or logs an error, it sends a crash report to Unity's Diagnostics service so we can find and fix the fault. A report contains the technical details of the fault (the error, a stack trace and app performance data), your device model, operating system version, the Game's version, and a randomly generated installation identifier created by the Unity engine. We do **not** attach your account, email address or display name to these reports, and they contain no gameplay, purchase or contact information.
 
-**g. Push notification tokens** (only if/when you enable notifications).
+**g. Support data**: correspondence when you contact us.
+
+**h. Push notification tokens** (only if/when you enable notifications).
 
 **Website (FourXGames.com):** the Site uses only strictly necessary cookies, and no analytics, advertising or third-party tracking cookies. It also loads no third-party content: the fonts and scripts it needs are served from our own domain, so visiting the Site does not disclose your IP address to anyone else.
 
@@ -274,8 +276,9 @@ We do **not** collect: real names (unless you put one in your display name), pre
 | Leaderboards, competitive modes and matchmaking (when live) | b, c | Contract |
 | Process purchases and deliver entitlements | d | Contract; legal obligation |
 | Security, fraud prevention, service integrity, debugging | e, c | Legitimate interests |
-| Support | f | Contract / legitimate interests |
-| Optional notifications | g | Consent (withdraw any time in device settings) |
+| Finding and fixing crashes and faults in the Game | f | Legitimate interests |
+| Support | g | Contract / legitimate interests |
+| Optional notifications | h | Consent (withdraw any time in device settings) |
 | Legal compliance (tax, accounting, lawful requests) | a, d, e | Legal obligation |
 | Service communications (e.g. material changes to terms) | a | Contract / legitimate interests |
 
@@ -287,6 +290,7 @@ We do **not sell** personal information and do **not share it for cross-context 
 
 - **Amazon Web Services (processor):** our game servers and databases run on Amazon Web Services infrastructure in the **United States** (AWS region us-east-1). AWS hosts and stores the data on our behalf under its data processing addendum; it does not use it for its own purposes. Databases are encrypted in transit, and access is restricted to our own application servers.
 - **Cloudflare, Inc. (processor):** all traffic between your device and our servers passes through Cloudflare's network, which provides the secure connection (TLS), protects the service from attack, and delivers course downloads. Cloudflare therefore processes your requests and IP address in transit on our behalf. Cloudflare also stores and delivers our game content (such as course downloads).
+- **Unity Technologies (processor):** the Unity engine that runs the Game sends crash and diagnostic reports (section 1f) to Unity's Diagnostics service, which stores them and shows them to us so we can fix faults. Unity processes these reports on our behalf; they are not linked to your account.
 - **App stores:** Apple and Google, when they process your purchases, subscriptions or refunds under their own privacy policies, and for app distribution and (if enabled) push notifications.
 - **Professional advisers and authorities** where required by law, to enforce our terms, or to protect the rights, safety and integrity of players and the Services.
 - **A buyer or successor** in a merger, acquisition or asset sale — with notice to you and continuity of this policy's protections.
@@ -300,6 +304,7 @@ We are a South African company, but **your personal information is stored on our
 
 - **From the EU/EEA/UK:** neither South Africa nor the United States (outside the EU-US Data Privacy Framework) is covered by a European Commission adequacy decision for our purposes, so these transfers rely on the European Commission's Standard Contractual Clauses (and the UK Addendum/IDTA), entered into by us and flowed down to our processors, together with the security measures described in section 8.
 - **From South Africa:** your information is transferred outside the Republic to the United States. We rely on section 72(1)(b) of POPIA: the transfer is necessary for the performance of our agreement with you (operating your account and the Game), and our processors are bound by written agreements imposing data-protection obligations substantially similar to POPIA.
+- **Crash and diagnostic reports** (section 1f) are processed by Unity Technologies, including in the United States, under Unity's data processing terms, which incorporate the Standard Contractual Clauses.
 - **In transit:** requests travel through Cloudflare's global network, which may route and process them outside South Africa in order to deliver them securely. Cloudflare acts as our processor under its data processing addendum, which incorporates the Standard Contractual Clauses.
 - **Other countries:** we apply the same contractual safeguards.
 
@@ -316,8 +321,9 @@ You may request a copy of the relevant safeguards via privacy@fourxgames.com.
 | Anti-cheat flags and enforcement records | Kept while the account exists, and with the enforcement action; deleted with the account |
 | Purchase/transaction records | As required by tax and company law (South Africa: generally 5 years) — retained even after account deletion, de-linked where feasible |
 | Server logs and diagnostics | 90 days, then automatically discarded |
+| Crash and diagnostic reports (section 1f) | Kept in Unity's Diagnostics service for the retention period Unity applies to that service, then deleted by Unity. They are not linked to your account, so they are not deleted with it. |
 | Support correspondence | 24 months |
-| Backups | Encrypted automated daily backups, kept **7 days** — so deleted data leaves backup rotation within **37 days** of your deletion request |
+| Backups | Encrypted automated backups: database snapshots kept **14 days**, and nightly encrypted copies held in two separate United States data centres for **30 days** (plus up to 5 more days before a replaced copy is purged). Deleted data therefore leaves every backup within **65 days** of your deletion request (the 30-day deletion deadline plus the backup lifetime). Backups are used only to restore the service after a failure, never to bring back a deleted account. |
 
 ## 6. Your rights
 
@@ -367,8 +373,8 @@ Registration number: 2026/552177/07 (Republic of South Africa)
 Website: https://FourXGames.com
 Contact: admin@fourxgames.com · Registered address: 30 Fifth Street, Menlopark, Pretoria, South Africa
 
-**Effective date:** 1 August 2026
-**Version:** 1.0
+**Effective date:** 26 September 2026
+**Version:** 1.1
 
 > These Terms and Conditions ("**Terms**") are a binding agreement between you and FourX Games Proprietary Limited ("**FourX Games**", "**we**", "**us**"), a company registered in the Republic of South Africa, governing your use of the mobile game **Prestige Golf** (the "**Game**"), the FourXGames.com website (the "**Site**"), and related online services (together, the "**Services**"). By creating an account, installing, or playing the Game you accept these Terms. If you do not agree, do not use the Services.
 
@@ -412,7 +418,7 @@ Contact: admin@fourxgames.com · Registered address: 30 Fifth Street, Menlopark,
 
 ## 5. Virtual items and virtual currency
 
-5.1 The Game includes virtual items and balances — for example XP, career progression, clubs, accessories, and (when introduced) premium currency and passes ("**Virtual Items**"). Virtual Items are licensed to you under clause 3, **not sold**: you receive a limited, revocable licence to use them within the Game only.
+5.1 The Game includes virtual items and balances — for example XP, career progression, clubs, accessories, in-game Chips, boosters, and passes such as the Course Pass ("**Virtual Items**"). Virtual Items are licensed to you under clause 3, **not sold**: you receive a limited, revocable licence to use them within the Game only.
 
 5.2 Virtual Items have **no real-world value**, are not redeemable for money, and may not be sold, traded or transferred outside the Game. Unauthorised sale or purchase of Virtual Items or accounts is a breach of these Terms.
 
@@ -422,8 +428,6 @@ Contact: admin@fourxgames.com · Registered address: 30 Fifth Street, Menlopark,
 
 ## 6. Purchases, billing and refunds
 
-*(Applies once in-app purchases launch.)*
-
 6.1 Purchases in the Game are processed by the app store (Apple or Google), on their payment terms. We do not receive or store your card details.
 
 6.2 Prices are shown in the store before purchase, inclusive of applicable taxes where required. Prices may change; changes do not affect purchases already completed.
@@ -432,7 +436,17 @@ Contact: admin@fourxgames.com · Registered address: 30 Fifth Street, Menlopark,
 
 6.4 **EU/UK withdrawal right.** If you are an EU/EEA or UK consumer, you have a 14-day right of withdrawal for digital content. **By purchasing Virtual Items you expressly consent to immediate delivery of the digital content and acknowledge that you thereby lose the 14-day right of withdrawal once delivery has begun.**
 
-6.5 Purchases by minors: account holders are responsible for purchases made on their account and devices, subject to applicable law protecting minors.
+6.5 Purchases by minors: account holders are responsible for purchases made on their account and devices, subject to applicable law protecting minors. You must be at least 13 years old to make a purchase, and we ask for your date of birth once before your first purchase (see the Privacy Policy).
+
+6.6 **Subscriptions (for example the Course Pass).** Some items are sold as auto-renewing subscriptions for a stated period (such as one week or one month):
+(a) the price and period are shown before you buy, and payment is charged to your Apple ID or Google Play account when you confirm the purchase;
+(b) **a subscription renews automatically at the end of each period, at the same price, until you cancel it.** To avoid the next renewal, cancel before the current period ends — on Apple, at least 24 hours before it ends, because Apple charges the renewal within the 24 hours before the period ends;
+(c) you can cancel at any time in your Apple ID or Google Play subscription settings (the Game links to them); cancelling stops future renewals, and **you keep access until the end of the period you have already paid for**;
+(d) we do not refund unused parts of a subscription period ourselves — refunds are handled by the app store under clause 6.3;
+(e) if the store cannot collect a renewal payment, access may continue for any grace period the store provides and then ends;
+(f) if we change a subscription's price, the store will tell you in advance and, where the law or the store's rules require it, ask for your agreement before the new price applies.
+
+6.7 **Refunded or reversed purchases.** If a purchase is refunded, charged back or revoked by the app store, the item it delivered is removed from your account to the extent you still hold it (for example unused charges of a consumable, or remaining subscription access). Anything you have already used, and what you earned with it, is not taken back.
 
 ## 7. User content and conduct
 
